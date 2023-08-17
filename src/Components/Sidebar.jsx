@@ -20,7 +20,7 @@ const Sidebar = () => {
   var name = localStorage.getItem("newuser");
   return (
     <Sider trigger={null} collapsible collapsed={collapsed}>
-       <img class="logo" style={mystyle} src="https://www.qdb.qa/Style%20Library/QDB/images/logo.png" />
+      <div className="logo" style={{background: 'azure'}} ><img class="logo" style={mystyle} src="https://www.qdb.qa/Style%20Library/QDB/images/logo.png" /></div> 
       <div className="demo-logo-vertical" />
       
             <Menu
