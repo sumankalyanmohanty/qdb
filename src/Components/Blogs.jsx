@@ -30,7 +30,7 @@ const Blogs = () => {
     }, 1000);
   };
   const handleCancel = () => {
-    console.log("Clicked cancel button");
+    
     setOpen(false);
   };
   const handleSubmit = (id) => {
@@ -48,7 +48,7 @@ const Blogs = () => {
         return response.json();
       })
       .then((json) => {
-        //console.log(json,'JSRR')
+        
         setUposts(json);
       });
   };
