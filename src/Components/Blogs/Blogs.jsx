@@ -11,7 +11,6 @@ const Blogs = () => {
   const [modalText, setModalText] = useState("Content of the modal");
   const [uposts, setUposts] = useState([]);
   const [posts, setPosts] = useState([]);
-
   let userid = localStorage.getItem("userId");
   let baseUrl = process.env.REACT_APP_BASE_URL_USERS;
   let url = baseUrl + userid + "/posts";
@@ -31,13 +30,12 @@ const Blogs = () => {
     }, 1000);
   };
   const handleCancel = () => {
-    
     setOpen(false);
   };
   const handleSubmit = (id) => {
-    
-    fetch("https://jsonplaceholder.typicode.com/posts/"+id
-    , {
+    console.log(id, "Jay shree Ram");
+
+    fetch("https://jsonplaceholder.typicode.com/posts/" + id, {
       method: "PUT",
       body: JSON.stringify({
         posts,
@@ -50,7 +48,6 @@ const Blogs = () => {
         return response.json();
       })
       .then((json) => {
-        
         setUposts(json);
       });
   };
@@ -72,35 +69,6 @@ const Blogs = () => {
         {" "}
         EDIT
       </Button>
-    ),
-    modal: (
-      <Modal
-        title={newdata.title}
-        open={open}
-        onOk={handleOk}
-        confirmLoading={confirmLoading}
-        onCancel={handleCancel}
-      >
-        <Form>
-          <input
-            type="text"
-            name="title"
-            onChange={getVal}
-            value={newdata.title}
-          ></input>
-          <p></p>
-          <textarea name="textarea" onChange={getVal} rows="5" cols="40">
-            {newdata.body}
-          </textarea>
-          <p></p>
-          <input
-            type="submit"
-            name="submitInfo"
-            id="postcontent"
-            onClick={()=>handleSubmit(newdata.id)}
-          ></input>
-        </Form>
-      </Modal>
     ),
     Dbutton: <Button onClick={() => handleRemove(newdata.id)}> DELETE</Button>,
   }));
@@ -127,10 +95,35 @@ const Blogs = () => {
               />
             }
           >
-            <List.Item.Meta
-              title={ item.title }
-              description={item.description}
-            />
+            <List.Item.Meta title={item.title} description={item.description} />
+            <Modal
+              key={item.blogID}
+              title={item.title}
+              open={open}
+              onOk={handleOk}
+              confirmLoading={confirmLoading}
+              onCancel={handleCancel}
+            >
+              <Form>
+                <input
+                  type="text"
+                  name="title"
+                  onChange={getVal}
+                  value={item.title}
+                ></input>
+                <p></p>
+                <textarea name="textarea" onChange={getVal} rows="5" cols="40">
+                  {item.content}
+                </textarea>
+                <p></p>
+                <input
+                  type="submit"
+                  name="submitInfo"
+                  id="postcontent"
+                  onClick={() => handleSubmit(item.blogID)}
+                ></input>
+              </Form>
+            </Modal>
             {item.content}
             <Divider>
               {item.Ebutton}
