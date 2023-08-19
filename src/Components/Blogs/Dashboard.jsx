@@ -1,7 +1,15 @@
 import React, { useEffect, useState } from "react";
-import Sidebar from '../Sidebar'
-import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
-import { Layout, Button, theme, Card, Col, Row, Carousel } from "antd";
+import Sidebar from "../Sidebar";
+import { MenuFoldOutlined, MenuUnfoldOutlined, LikeOutlined } from "@ant-design/icons";
+import {
+  Layout,
+  Button,
+  theme,
+  Card,
+  Col,
+  Row,
+  Statistic,
+} from "antd";
 import axios from "axios";
 const { Header, Sider, Content } = Layout;
 const { Meta } = Card;
@@ -39,7 +47,7 @@ const Dashboard = () => {
         </Header>
         <Row gutter={16}>
           <Col className="gutter-row" span={6}>
-            <div style={{ background: "#0092ff", padding: "8px  40px" }}>
+            <div style={{ background: "#B9B4C7", padding: "8px  40px" }}>
               <Card
                 hoverable
                 style={{ width: 240 }}
@@ -58,7 +66,7 @@ const Dashboard = () => {
             </div>
           </Col>
           <Col className="gutter-row" span={6}>
-            <div style={{ background: "#0092ff", padding: "8px  10px" }}>
+            <div style={{ background: "#33BBC5", padding: "8px  10px" }}>
               <Card title="Overall" bordered={false} style={{ width: 300 }}>
                 <p>{userPosts} published posts</p>
                 <p>By {uname}</p>
@@ -67,55 +75,32 @@ const Dashboard = () => {
             </div>
           </Col>
           <Col className="gutter-row" span={6}>
-            <div style={{ background: "#0092ff", padding: "8px  40px" }}>
-              <Card
-                hoverable
-                style={{ width: 240 }}
-                cover={
-                  <img
-                    alt="example"
-                    src="https://img.freepik.com/free-vector/follow-me-social-business-theme-design_24877-50426.jpg?w=740&t=st=1692197808~exp=1692198408~hmac=00f4b266eb02838bfba447ac847502f188e8717f8fa464d893521b15bbaf86b5"
-                  />
-                }
-              >
-                <Meta
-                  title="Welcome to QDB "
-                  description="QDB has always been firmly committed to creating an economy that is sustainable, diversified and competitive, with dynamic, successful SMEs at the core"
+            <div style={{ background: "#974EC3",borderRadius: "10px", padding: "8px 40px" }}>
+              <Col span={12}>
+                <Statistic title="Active Users" value={112893} />
+              </Col>
+              <Col span={12}>
+                <Statistic
+                  title="Account Balance (QAR)"
+                  value={112893}
+                  precision={2}
                 />
-              </Card>
+                <Button style={{ marginTop: 16 }} type="primary">
+                  Recharge
+                </Button>
+              </Col>
+              
             </div>
           </Col>
 
           <Col className="gutter-row" span={6}>
-            <div style={{ background: "#0092ff", padding: "8px 0" }}>
-              <Carousel autoplay>
-                <div>
-                  <h3
-                    style={{
-                      height: "160px",
-                      color: "#fff",
-                      lineHeight: "160px",
-                      textAlign: "center",
-                      background: "#364d79",
-                    }}
-                  >
-                    POSTS SLIDER ONE
-                  </h3>
-                </div>
-                <div>
-                  <h3
-                    style={{
-                      height: "160px",
-                      color: "#fff",
-                      lineHeight: "160px",
-                      textAlign: "center",
-                      background: "#364d79",
-                    }}
-                  >
-                    POSTS SLIDER ONE
-                  </h3>
-                </div>
-              </Carousel>
+            <div style={{ background: "#33BBC5", borderRadius: "10px",padding: "8px 0" }}>
+            <Col span={12}>
+      <Statistic title="Feedback" value={1128} prefix={<LikeOutlined />} />
+    </Col>
+    <Col span={12}>
+      <Statistic title="Approved Comment" value={78} suffix="/ 100" />
+    </Col>
             </div>
           </Col>
         </Row>
