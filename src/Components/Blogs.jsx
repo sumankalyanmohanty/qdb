@@ -13,7 +13,8 @@ const Blogs = () => {
   const [posts, setPosts] = useState([]);
 
   let userid = localStorage.getItem("userId");
-  let url = process.env.REACT_APP_BASE_URL_USERS + userid + "/posts";
+  let baseUrl = process.env.REACT_APP_BASE_URL_USERS;
+  let url = baseUrl + userid + "/posts";
   useEffect(() => {
     axios.get(url).then((blogdata) => {
       setBlogs(blogdata.data);

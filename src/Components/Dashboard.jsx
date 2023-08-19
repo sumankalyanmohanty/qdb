@@ -7,8 +7,8 @@ const { Header, Sider, Content } = Layout;
 const { Meta } = Card;
 let uid = localStorage.getItem("userId");
 let uname = localStorage.getItem("newuser");
-
-let url = process.env.REACT_APP_BASE_URL_USERS + uid + "/posts";
+let baseUrl = process.env.REACT_APP_BASE_URL_USERS;
+let url = baseUrl + uid + "/posts";
 
 const Dashboard = () => {
   const [collapsed, setCollapsed] = useState(false);
