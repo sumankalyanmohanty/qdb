@@ -27,7 +27,7 @@ const Sidebar = () => {
         onClick={({ key }) => {
           if (key == "signout") {
             localStorage.clear();
-            navi("/login");
+            navi("/");
           } else {
             navi(key);
           }
@@ -37,7 +37,7 @@ const Sidebar = () => {
         defaultSelectedKeys={["/dashboard"]}
         items={[
           {
-            key: "/",
+            key: "#",
             icon: <UserOutlined />,
             label:"Hello "+ name,
           },
@@ -52,7 +52,7 @@ const Sidebar = () => {
             label: "Blog",
           },
           {
-            key: "/Login/login",
+            key: "/",
             icon: <PoweroffOutlined />,
             label: "Sign out",
           },

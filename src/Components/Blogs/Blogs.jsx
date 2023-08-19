@@ -36,7 +36,8 @@ const Blogs = () => {
   };
   const handleSubmit = (id) => {
     
-    fetch("https://jsonplaceholder.typicode.com/posts/"+id, {
+    fetch("https://jsonplaceholder.typicode.com/posts/"+id
+    , {
       method: "PUT",
       body: JSON.stringify({
         posts,

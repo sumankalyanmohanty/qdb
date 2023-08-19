@@ -28,8 +28,14 @@ const Login = () => {
     let { uname } = document.forms[0];
 
     const userData = database.find((user) => user.username === uname.value);
-    let userid = userData.id;
-    let username = userData.username;
+    let userid = "";
+    let username = "";
+
+   if(userData) {
+     userid = userData.id;
+     username = userData.username;
+   }
+ 
     localStorage.setItem("userId", userid);
     localStorage.setItem("newuser", username);
 
@@ -37,6 +43,7 @@ const Login = () => {
       setIsSubmitted(true);
       navigate("/dashboard");
     } else {
+      navigate("/");
       setErrorMessages({ name: "uname", message: errors.uname });
     }
   };
