@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Sidebar from "./Sidebar";
+import Sidebar from '../Sidebar'
 import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 import { Layout, Button, theme, Card, Col, Row, Carousel } from "antd";
 import axios from "axios";

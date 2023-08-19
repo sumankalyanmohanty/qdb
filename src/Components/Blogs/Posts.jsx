@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-import Sidebar from './Sidebar';
+import Sidebar from '../Sidebar'
 import Blogs from './Blogs';
 import { Layout, Button, theme } from "antd";
 
