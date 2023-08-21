@@ -14,7 +14,7 @@ const mystyle = {
   marginLeft:"60px"
 };
 const { Sider } = Layout;
-const Sidebar = () => {
+const Sidebar = ({username }) => {
   const navi = useNavigate();
   const [collapsed, setCollapsed] = useState(false);
   var name = localStorage.getItem("newuser");
@@ -39,7 +39,7 @@ const Sidebar = () => {
           {
             key: "#",
             icon: <UserOutlined />,
-            label:"Hello "+ name,
+            label:"Hello "+ username,
           },
           {
             key: "/dashboard",

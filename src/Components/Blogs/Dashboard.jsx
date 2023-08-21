@@ -14,7 +14,7 @@ import axios from "axios";
 const { Header, Sider, Content } = Layout;
 const { Meta } = Card;
 let uid = localStorage.getItem("userId");
-let uname = localStorage.getItem("newuser");
+
 let baseUrl = process.env.REACT_APP_BASE_URL_USERS;
 let url = baseUrl + uid + "/posts";
 
@@ -29,9 +29,10 @@ const Dashboard = () => {
   });
 
   let userPosts = posts.length;
+  const username = localStorage.getItem("newuser");
   return (
     <Layout>
-      <Sidebar />
+      <Sidebar username={username} />
       <Layout>
         <Header style={{ padding: 0, background: colorBgContainer }}>
           <Button
@@ -69,7 +70,7 @@ const Dashboard = () => {
             <div style={{ background: "#33BBC5", padding: "8px  10px" }}>
               <Card title="Overall" bordered={false} style={{ width: 300 }}>
                 <p>{userPosts} published posts</p>
-                <p>By {uname}</p>
+                <p>By {username}</p>
                 <p>2 posts in Queue</p>
               </Card>
             </div>

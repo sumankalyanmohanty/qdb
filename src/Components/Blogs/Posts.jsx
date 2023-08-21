@@ -9,14 +9,16 @@ import {
   MenuUnfoldOutlined,
 } from "@ant-design/icons";
 const { Header, Sider, Content } = Layout;
+
 const Posts = () =>{
     const {
         token: { colorBgContainer },
       } = theme.useToken();
       const [collapsed, setCollapsed] = useState(false);
+      const username = localStorage.getItem("newuser");
 return(
  <Layout>  
-  <Sidebar/>
+  <Sidebar username={username} />
   <Layout>
   <Header style={{ padding: 0, background: colorBgContainer }}>
     <Button
