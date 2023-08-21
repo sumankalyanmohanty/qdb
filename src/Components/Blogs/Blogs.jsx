@@ -13,6 +13,7 @@ const Blogs = () => {
   const [posts, setPosts] = useState([]);
   let userid = localStorage.getItem("userId");
   let baseUrl = process.env.REACT_APP_BASE_URL_USERS;
+  let baseUrlPost = process.env.REACT_APP_BASE_URL_POSTS;
   let url = baseUrl + userid + "/posts";
   useEffect(() => {
     axios.get(url).then((blogdata) => {
@@ -35,7 +36,7 @@ const Blogs = () => {
   const handleSubmit = (id) => {
     console.log(id, "Jay shree Ram");
 
-    fetch("https://jsonplaceholder.typicode.com/posts/" + id, {
+    fetch(baseUrlPost + id, {
       method: "PUT",
       body: JSON.stringify({
         posts,
